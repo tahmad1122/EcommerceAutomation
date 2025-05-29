@@ -5,9 +5,11 @@
     <classes>
       <class name="com.testcase.Login_TestCase_001">
         <methods>
-          <include name="validLogin"/>
           <include name="tearDown"/>
+          <include name="setupReport"/>
+          <include name="flushReport"/>
           <include name="setUp"/>
+          <include name="loginTest"/>
         </methods>
       </class> <!-- com.testcase.Login_TestCase_001 -->
     </classes>

@@ -1,10 +1,14 @@
 package com.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage {
 
@@ -17,16 +21,19 @@ public class LoginPage {
 	}
 	
 	//Web element by @FindBy annotation.
-	@FindBy(id = "user-name")
+	@FindBy(xpath = "//input[@id='userEmail']")
 	WebElement userName;
 	
-	@FindBy(xpath = "//input[@id='password']")
+	@FindBy(xpath = "//input[@id='userPassword']")
 	WebElement passWord;
 	
-	@FindBy(id = "login-button")
+	@FindBy(xpath =  "//input[@id='login']")
 	WebElement login;
 	
-	@FindBy(xpath = "//div[@class='error-message-container error']")
+	@FindBy(css ="div[aria-label='Login Successfully']")
+	WebElement message;
+	
+	@FindBy(css = "div[aria-label='Incorrect email or password.']")
 	WebElement errorMsg;
 
 	//Action methods
@@ -43,13 +50,22 @@ public class LoginPage {
 		login.click();
 	}
 	
+	public void setMessage() throws Exception {
+		 String loginMsg=message.getText();
+		 Thread.sleep(2000);
+	        System.out.println("Login message: " + loginMsg );
+	}
+	
 	
 	 public boolean isLoginSuccessful() {
 		 try {
-			return driver.findElement(By.xpath("//div[@class='app_logo']")).isDisplayed();
-		} catch (Exception e) {
-			return false;
-		}
+		        String currentUrl = driver.getCurrentUrl();
+		        System.out.println("🔍 Current URL after login: " + currentUrl);
+		        return currentUrl.equals("https://rahulshettyacademy.com/client/dashboard/dash");
+		    } catch (Exception e) {
+		        System.out.println("❌ Error while checking login URL: " + e.getMessage());
+		        return false;
+		    }
 		
 	 }
 	 
