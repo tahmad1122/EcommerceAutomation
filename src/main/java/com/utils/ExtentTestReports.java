@@ -6,9 +6,9 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class ExtentTestReports {
-	ExtentSparkReporter extentSparkReporter;
+	public ExtentSparkReporter extentSparkReporter;
 	public ExtentReports reports;
-	ExtentTest extentTest;
+	public ExtentTest extentTest;
 	
 	public void startReport() {
 		String reportPath = System.getProperty("user.dir") + "/reports/ExtentReport.html";

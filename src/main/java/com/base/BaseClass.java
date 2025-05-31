@@ -1,6 +1,7 @@
 package com.base;
 
 import java.time.Duration;
+import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -71,7 +72,31 @@ public class BaseClass {
         }
         
         // Quit the driver
-        driver.quit();
+       // driver.quit();
+    }
+    
+    public static String generateRandom16DigitNumber() {
+        Random random = new Random();
+        StringBuilder sb = new StringBuilder();
+
+        // Ensure the first digit is not 0
+        sb.append(random.nextInt(9) + 1); // 1–9
+
+        for (int i = 1; i < 16; i++) {
+            sb.append(random.nextInt(10)); // 0–9
+        }
+
+        return sb.toString();
+    }
+    
+    public static String generateRandomName() {
+        String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        StringBuilder name = new StringBuilder();
+
+        for (int i = 0; i < 7; i++)  // fixed length: 8
+            name.append(letters.charAt((int)(Math.random() * letters.length())));
+
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 
 
