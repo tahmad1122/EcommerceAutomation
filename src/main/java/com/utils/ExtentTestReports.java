@@ -22,6 +22,7 @@ public class ExtentTestReports {
 		extentSparkReporter.config().setDocumentTitle("Automation Test Results");
 		extentSparkReporter.config().setReportName("E-Commerce Automation Flow");
 		extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
+		extentSparkReporter.config().setOfflineMode(true);
 				
 
 
