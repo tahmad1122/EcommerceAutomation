@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.base.BaseClass;
 
+
+
 public class CheckoutPage {
 
 	WebDriver driver;
@@ -59,6 +61,7 @@ public class CheckoutPage {
 	public void setPaymentMethod() {
 		String payment=paymentMethod.getText();
 		System.out.println("Payment method: "+payment);
+		System.out.println("===========================");
 	}
 
 	public void setCardNumber() {
@@ -66,6 +69,7 @@ public class CheckoutPage {
 		    cardNumber.clear();
 		    cardNumber.sendKeys(randomCard);
 		    System.out.println("Random Card Number Set: " + randomCard);
+		    System.out.println("===========================");
 	}
 
 	public void setExpiryDate() {
@@ -86,6 +90,7 @@ public class CheckoutPage {
 		String randomName = BaseClass.generateRandomName();
 		nameOnCard.sendKeys(randomName);
 		System.out.println("Random Name: " + randomName);
+		System.out.println("===========================");
 		
 	}
 

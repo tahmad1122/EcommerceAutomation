@@ -16,11 +16,11 @@ public class ExtentTestReports {
 		
 		reports = new ExtentReports();
 		reports.attachReporter(extentSparkReporter);
-        reports.setSystemInfo("Tester", "Your Name");
+        reports.setSystemInfo("Tester", "QA");
         
 //        extentSparkReporter.config().setTheme(Theme.DARK);
 		extentSparkReporter.config().setDocumentTitle("Automation Test Results");
-		extentSparkReporter.config().setReportName("E-Commerce Automation Report");
+		extentSparkReporter.config().setReportName("E-Commerce Automation Flow");
 		extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
 				
 

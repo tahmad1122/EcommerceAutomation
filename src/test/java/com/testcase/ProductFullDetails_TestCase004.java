@@ -9,6 +9,8 @@ import com.base.BaseClass;
 import com.pages.CartPageDetails;
 import com.pages.CheckoutPage;
 import com.pages.ProductFullDetailsPage;
+import com.pages.VerifyOrderPage;
+import com.pages.ViewOrderPage;
 
 public class ProductFullDetails_TestCase004 extends BaseClass {
 
@@ -71,6 +73,7 @@ public class ProductFullDetails_TestCase004 extends BaseClass {
 			cartPageDetails.clickCheckout();
 			Thread.sleep(2000);
 			
+			//Step CheckOut Details Page
 			CheckoutPage checkoutPage=new CheckoutPage(driver);
 			checkoutPage.setPaymentMethod();
 			checkoutPage.setCardNumber();
@@ -90,6 +93,21 @@ public class ProductFullDetails_TestCase004 extends BaseClass {
 			Thread.sleep(2000);
 			checkoutPage.placeOrder();
 			Thread.sleep(2000);
+			
+			//VerifyOderPage
+			VerifyOrderPage orderPage=new VerifyOrderPage(driver);
+			orderPage.thankYou();
+//			orderPage.orderID();
+			String storedId = orderPage.orderID(); 
+			orderPage.clickOrder();
+			orderPage.verifyOderById(storedId);
+			orderPage.yourOrder();
+			orderPage.tableOrderdata();
+			orderPage.viewOrderBtn();
+			
+			//ViewOrderDetails
+			ViewOrderPage viewOrderPage=new ViewOrderPage(driver);
+			viewOrderPage.orderSummaryDetails();
 
 		} catch (Exception e) {
 			// test.log(Status.FAIL, "❌ Test failed: " + e.getMessage());
